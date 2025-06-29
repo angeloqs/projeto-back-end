@@ -9,9 +9,14 @@
   "scripts": {
     "start": "node src/server.js",
     "dev": "nodemon src/server.js",
-    "test": "jest",
-    "migrate": "sequelize-cli db:migrate",
-    "seed": "sequelize-cli db:seed:all"
+    "migrate": "sequelize db:migrate",
+    "migrate:undo": "sequelize db:migrate:undo:all",
+    "migration:create": "sequelize migration:generate --name",
+    "model:create": "sequelize model:generate --name",
+    "seed": "sequelize db:seed:all",
+    "seed:undo": "sequelize db:seed:undo:all",
+    "db:setup": "sequelize db:create && sequelize db:migrate && sequelize db:seed:all",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -26,20 +31,15 @@
   },
   "homepage": "https://github.com/angeloqs/projeto-back-end#readme",
   "dependencies": {
-    "bcryptjs": "^3.0.2",
-    "body-parser": "^2.2.0",
-    "cors": "^2.8.5",
     "dotenv": "^17.0.0",
     "express": "^5.1.0",
     "jsonwebtoken": "^9.0.2",
-    "multer": "^2.0.1",
     "mysql2": "^3.14.1",
     "sequelize": "^6.37.7"
   },
   "devDependencies": {
     "jest": "^29.5.0",
     "nodemon": "^3.1.10",
-    "sequelize-cli": "^6.6.3",
-    "supertest": "^6.3.4"
+    "sequelize-cli": "^6.6.3"
   }
 }
